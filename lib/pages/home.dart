@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
-                      contentPadding: const EdgeInsets.symmetric(vertical: 14),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 14,horizontal: 16),
                       suffixIcon: const Icon(Icons.search, color: primaryClr),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
