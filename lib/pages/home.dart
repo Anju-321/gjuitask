@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapplication/core/appsvg.dart';
 import 'package:myapplication/core/style.dart';
-import 'package:myapplication/core/utils.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

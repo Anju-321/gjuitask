@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:myapplication/pages/home.dart';
-import 'package:myapplication/pages/tral.dart';
+import 'package:myapplication/pages/trial.dart';
 
 import '../core/appsvg.dart';
 import '../core/style.dart';
 import '../core/utils.dart';
 
 class LandingScreen extends StatefulWidget {
+  const LandingScreen({super.key});
+
   @override
   _LandingScreenState createState() => _LandingScreenState();
 }
