@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: primaryClr,
       appBar: AppBar(
         backgroundColor: primaryClr,
         title: Row(
@@ -72,52 +73,64 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
-            color: primaryClr,
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: const EdgeInsets.symmetric(vertical: 14,horizontal: 16),
-                      suffixIcon: const Icon(Icons.search, color: primaryClr),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SizedBox(
+              height: 36,
+              child: TextField(
+                decoration: InputDecoration(
+                  isDense: true,
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 20),
+                  suffixIcon: const Icon(
+                    Icons.search,
+                    color: primaryClr,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40),
+                    borderSide: BorderSide.none,
                   ),
                 ),
-              ],
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Route collection',
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: monts5,
               ),
             ),
           ),
           Expanded(
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemCount: 2,
-              itemBuilder: (context, index) => PaymentCard(isPaid: index == 0),
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 16,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(16),
+                      topLeft: Radius.circular(16)),
+                  color: Colors.white),
+              child: ListView.separated(
+                shrinkWrap: true,
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  if (index == 0) {
+                    return const Padding(
+                      padding: EdgeInsets.only(top: 16),
+                      child: Text(
+                        'Route collection',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: monts5,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+                  }
+                  return PaymentCard(isPaid: index == 1);
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 16,
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 16),
             ),
           ),
         ],
       ),
-   
     );
   }
 }
